@@ -1,0 +1,11 @@
+def convert_to_binary(n):
+    res=[]
+    while n!=1:
+        res.append(n%2)
+        n=n//2
+    res.append(1)
+    res.reverse()
+    
+    return res
+n=13
+print(convert_to_binary(n))
