@@ -1,0 +1,34 @@
+# swap numbers
+
+def swap(a,b):
+    a=a^b
+    b=a^b
+    a=a^b
+    return a,b
+a=5
+b=6
+print(swap(a,b))
+
+# check if ith bit is set or not using left shift and right shift
+
+def ith_term_set(val,i):
+    x=val&(1<<i)
+    if x>0:
+        return "ith term is set"
+    else:
+        return "ith term is not set"
+val=13
+i=1
+print(ith_term_set(val,i))
+
+# check is ith term is set or not using right shift
+
+def ith_term_is_set_using_right_shift(val,i):
+    x=(val>>i)&1
+    if x==1:
+        return "ith term is set"
+    else:
+        return "ith term is not set"
+val1=13
+i1=1
+print(ith_term_is_set_using_right_shift(val1,i1))
