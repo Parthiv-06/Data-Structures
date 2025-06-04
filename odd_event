@@ -1,0 +1,8 @@
+def odd_event(arr):
+    n=len(arr)
+    xor=0
+    for i in range(n):
+        xor^=arr[i]
+    return xor
+arr=[1,1,2,3,4,5,2,4,5]
+print(odd_event(arr))
