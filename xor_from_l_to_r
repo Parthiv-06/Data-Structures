@@ -1,0 +1,16 @@
+def xor_of_n(n):
+    if n%4==0:
+        return n
+    if n%4==1:
+        return 1
+    if n%4==2:
+        return 1+n
+    if n%4==3:
+        return 0
+n=8
+print(xor_of_n(n))
+
+# xor from left to right\\
+def xor_of_l_to_n(a,b):
+    return xor_of_n(a-1)^xor_of_n(b)
+print(xor_of_l_to_n(4,7))
