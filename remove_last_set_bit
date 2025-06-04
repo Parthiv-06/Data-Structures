@@ -1,0 +1,27 @@
+def remove_last_set_bit(n):
+    x=n&n-1
+    return x
+n=16
+print(remove_last_set_bit(n))
+
+# check if power of 2 or not
+
+def power_of_zero(val):
+    if (val&val-1==0):
+        return "it is a power of 2"
+    else:
+        return "it is not a power of 2"
+val=16
+print(power_of_zero(val))
+
+# check number of set bits
+
+def check_number_of_set_bits(n):
+    cnt=1
+    while n!=1:
+        if n%2==1:
+            cnt+=1
+        n=n//2
+    return cnt
+val=15
+print(check_number_of_set_bits(val))
