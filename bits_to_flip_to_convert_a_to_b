@@ -1,0 +1,11 @@
+def bits_to_be_flipped(a,b):
+    res=a^b
+    cnt=0
+    for i in range(a^b):
+        while (res!=0):
+            res=res&res-1
+            cnt+=1
+    return cnt
+a=10
+b=7
+print(bits_to_be_flipped(a,b))
