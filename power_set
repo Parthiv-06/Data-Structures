@@ -1,0 +1,13 @@
+def power_set(arr):
+    n=len(arr)
+    subsets=1<<n
+    res=[]
+    for i in range(subsets):
+        ans=[]
+        for j in range(n):
+            if i&(1<<j):
+                ans.append(arr[j])
+        res.append(ans)
+    return res
+arr=[1,2,3]
+print(power_set(arr))
