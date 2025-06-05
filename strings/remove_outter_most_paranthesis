@@ -1,0 +1,12 @@
+def remove_outter_most_paranthesis(s):
+    res=[]
+    opened=0
+    for i in range(len(s)):
+        if s[i]=="("and opened>0:
+            res.append(s[i])
+        if s[i]==")" and opened>1:
+            res.append(s[i])
+        opened+=1 if s[i]=="(" else -1
+    return "".join(res)
+s="(()()())"
+print(remove_outter_most_paranthesis(s))
