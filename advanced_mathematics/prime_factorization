@@ -1,0 +1,10 @@
+def prime_factorization(n):
+    res=[]
+    for i in range(2,int(n**1/2)):
+        if n%i==0:
+            while n%i==0:
+                res.append(i)
+                n=n//i
+    return res
+n=780
+print(prime_factorization(n))
