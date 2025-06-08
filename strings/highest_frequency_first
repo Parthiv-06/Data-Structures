@@ -1,0 +1,10 @@
+def highest_freq_sort(s):
+    mpp={}
+    for char in s:
+        mpp[char]=mpp.get(char,0)+1
+    print(mpp)
+    mpp=sorted(mpp.items(),key=lambda x:-x[1])
+    print(mpp)
+    return "".join(key*val for key,val in mpp)
+s="Aabb"
+print(highest_freq_sort(s))
