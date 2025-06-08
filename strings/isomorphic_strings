@@ -1,0 +1,13 @@
+def isomorphic_strings(s,t):
+    mpp={}
+    for sc,tc in zip(s,t):
+        if sc in mpp:
+            if mpp[sc] != tc:
+                return False
+        elif tc in mpp.values():
+            return False
+        mpp[sc]=tc
+    return True
+s="add"
+t="egg"
+print(isomorphic_strings(s,t))
