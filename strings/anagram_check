@@ -1,0 +1,13 @@
+def anagram_check(s,t):
+    mpp={}
+    for char in s:
+        mpp[char]=mpp.get(char,0)+1
+    print(mpp)
+    for char in t:
+        if char not in mpp or mpp[char]==0:
+            return False
+        mpp[char]-=1
+    return True
+s="anagram"
+t="nagaram"
+print(anagram_check(s,t))
