@@ -1,0 +1,11 @@
+def beauty_of_substrings(s):
+    beauty=0
+    for i in range(len(s)):
+        mpp={}
+        for j in range(i,len(s)):
+            mpp[s[j]]=mpp.get(s[j],0)+1
+            beauty+=max(mpp.values())-min(mpp.values())
+            print(mpp)
+    return beauty
+s="aabcb"
+print(beauty_of_substrings(s))
