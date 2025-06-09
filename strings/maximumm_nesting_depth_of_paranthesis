@@ -1,0 +1,12 @@
+def maximum_nesting_depth_of_paranthesis(s):
+    opened=0
+    maximum_nest=0
+    for char in s:
+        if char=="(":
+            opened+=1
+        elif char==")":
+            opened -=1
+        maximum_nest=max(opened,maximum_nest)
+    return maximum_nest
+s="(1)+((2))+(((3)))"
+print(maximum_nesting_depth_of_paranthesis(s))
