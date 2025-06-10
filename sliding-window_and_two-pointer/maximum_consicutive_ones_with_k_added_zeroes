@@ -1,0 +1,15 @@
+def maximum_consicutive_ones(a,k):
+    zeroes,l,r,max_len=0,0,0,0
+    for r in range(len(a)):
+        if a[r]==0:
+            zeroes+=1
+        while zeroes>k:
+            if a[l]==0:
+                zeroes-=1
+            l+=1
+        if zeroes<=k:
+            max_len=max(max_len,r-l+1)
+       
+    return max_len
+a=[0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
+print(maximum_consicutive_ones(a,3))
