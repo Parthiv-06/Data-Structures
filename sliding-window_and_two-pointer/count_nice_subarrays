@@ -1,0 +1,13 @@
+def count_nice_subarray(a,k):
+    l,r,count,sum=0,0,0,0
+    for r in range(len(a)):
+        sum+=a[r]%2
+        while sum>k:
+            sum-=a[l]%2
+            l+=1
+        count+=r-l+1
+    return count
+a=[2,2,2,1,2,2,1,2,2,2]
+k=2
+res=count_nice_subarray(a,k)-count_nice_subarray(a,k-1)
+print(res)

@@ -10,3 +10,18 @@ def binary_subarray_with_sum(a,goal):
 a=[1,0,1,0,1]
 goal=2
 print(binary_subarray_with_sum(a,goal))    
+
+def binary_sub_array_wiht_sum_goal(a,goal):
+    l,r,summ,count=0,0,0,0
+    for r in range(len(a)):
+        summ+=a[r]
+        if summ<=goal:
+            count+=r-l+1
+        while summ>goal:
+            summ-=a[l]
+            l+=1
+    return count
+a=[1,0,1,0,1]
+goal=2
+rees=binary_sub_array_wiht_sum_goal(a,goal)-binary_sub_array_wiht_sum_goal(a,goal-1)
+print(rees)

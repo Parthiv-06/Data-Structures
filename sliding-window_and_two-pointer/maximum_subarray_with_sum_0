@@ -1,0 +1,16 @@
+def maximum_subarray_with_sum_0(a):
+    mpp={}
+    summ=0
+    max_len=0
+    for i in range(len(a)):
+        summ+=a[i]
+        if sum==0:
+            return i+1
+        else:
+            if sum in mpp:
+                max_len=max(max_len,i-mpp[sum])
+            else:
+                mpp[sum]=i
+    return max_len
+arr=[9,-3,3,-1,6,-5]
+print(maximum_subarray_with_sum_0(arr))
