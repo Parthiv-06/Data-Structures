@@ -1,0 +1,13 @@
+def number_of_substrings_with_all_three_characters(s):
+    l,r=0,0
+    cnt=0
+    mpp={'a':0,'b':0,'c':0}
+    for r in range(len(s)):
+        mpp[s[r]]+=1
+        while mpp['a']>0 and  mpp['b']>0 and mpp['c']>0:
+            cnt+=len(s)-r
+            mpp[s[l]]-=1
+            l+=1
+    return cnt
+s="abcabc"
+print(number_of_substrings_with_all_three_characters(s))
