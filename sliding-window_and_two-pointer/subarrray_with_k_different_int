@@ -1,0 +1,18 @@
+def subarray_with_k_dif_int(a,k):
+    l,r=0,0
+    cnt=0
+    mpp={}
+    for r in range(len(a)):
+        mpp[a[r]]=mpp.get(a[r],0)+1
+        while len(mpp)>k:
+            mpp[a[l]]-=1
+            if mpp[a[l]]==0:
+                mpp.pop(a[l])
+            l+=1
+        cnt+=r-l+1
+    return cnt
+def subarrays_res(a,k):
+    return subarray_with_k_dif_int(a,k)-subarray_with_k_dif_int(a,k-1)
+a=[1,2,1,2,3]
+k=2
+print(subarrays_res(a,k))
