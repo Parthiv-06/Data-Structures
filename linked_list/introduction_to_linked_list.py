@@ -10,12 +10,21 @@ class SLL:
         while printval is not None:
             print(printval.data,end=" ")
             printval=printval.next
-l=SLL()
-l.head=Node(10)
-e2=Node(20)
-e3=Node(30)
-l.head.next=e2
-e2.next=e3
-SLL.printlinkedlist(l)
+    def single_linked_list(self,a):
+        self.head=Node(a[0])
+        mover=self.head
+        for i in range(1,len(a)):
+            temp=Node(a[i])
+            mover.next=temp
+            mover=temp
 
-    
+l=SLL()
+# l.head=Node(10)
+# e2=Node(20)
+# e3=Node(30)
+# l.head.next=e2
+# e2.next=e3
+# SLL.printlinkedlist(l)
+a=[10,20,30,40,50]
+SLL.single_linked_list(l,a)
+SLL.printlinkedlist(l)
