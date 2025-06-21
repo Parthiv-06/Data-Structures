@@ -1,0 +1,10 @@
+def powerr(x,n,res):
+    if n==0:
+        return res
+    res=res*x
+    n-=1
+    return powerr(x,n,res)
+x=2.100
+n=3
+res=1
+print(powerr(x,n,res))
