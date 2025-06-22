@@ -1,0 +1,79 @@
+class Node:
+    def __init__(self,data,next=None,back=None):
+        self.data=data
+        self.next=next
+        self.back=back
+class DLL:
+    def __init__(self):
+        self.head=None
+    def array_to_dll(self,a):
+        self.head=Node(a[0])
+        prev=self.head
+        for i in range(1,len(a)):
+            temp=Node(a[i],None,prev)
+            prev.next=temp
+            prev=temp
+        return self.head
+    def printlinkedlist(self):
+        printval=self.head
+        while printval is not None:
+            print(printval.data,end="<->")
+            printval=printval.next
+    def insert_at_head(self,val):
+        new_node=Node(val)
+        self.head.back=new_node
+        new_node.next=self.head
+        self.head=new_node
+        return self.head
+    def insert_at_tail(self,val):
+        new_node=Node(val)
+        temp=self.head
+        while temp.next is not None:
+            temp=temp.next
+        temp.next=new_node
+        new_node.back=temp
+        return self.head
+    def insert_at_k(self,val,k):
+        cnt=0
+        new_node=Node(val)
+        temp=self.head
+        while temp is not None:
+            cnt+=1
+            if cnt==k:
+                break
+            temp=temp.next
+        f=temp.back
+        f.next=new_node
+        new_node.next=temp
+        temp.back=new_node
+        new_node.back=f
+        return self.head
+    def insert_before_tar(self,val,tar):
+        new_node=Node(val)
+        temp=self.head
+        while temp is not None:
+            if temp.data==tar:
+                break
+            temp=temp.next
+        f=temp.back
+        f.next=new_node
+        new_node.next=temp
+        temp.back=new_node
+        new_node.back=f
+        return self.head
+a=[10,20,30,40,5,60,70]
+l=DLL()
+DLL.array_to_dll(l,a)
+DLL.printlinkedlist(l)
+print("\n")
+DLL.insert_at_head(l,0)
+DLL.printlinkedlist(l)
+print("\n")
+DLL.insert_at_tail(l,80)
+DLL.printlinkedlist(l)
+print("\n")
+DLL.insert_at_k(l,25,3)
+DLL.printlinkedlist(l)
+print("\n")
+DLL.insert_before_tar(l,25,30)
+DLL.printlinkedlist(l)
