@@ -1,0 +1,46 @@
+class Node:
+    def __init__(self,data,next=None):
+        self.data=data
+        self.next=next
+class SLL:
+    def __init__(self):
+        self.head=None
+    def single_linked_list(self,a):
+        self.head=Node(a[0])
+        mover=self.head
+        for i in range(1,len(a)):
+            temp=Node(a[i])
+            mover.next=temp
+            mover=temp
+    def printlinkedlist(self):
+        printval=self.head
+        while printval is not None:
+            print(printval.data,end="-->")
+            printval=printval.next
+    def delete_head(self):
+        self.head=self.head.next
+    def delete_tail(self):
+        temp=self.head
+        while temp.next.next is not None:
+            temp=temp.next
+        temp.next=None
+        return self.head
+    def removek(self,k):
+        cnt=0
+        temp=self.head
+        while temp.next is not None:
+            if temp.data==k:
+                prev.next=prev.next.next
+            prev=temp
+            temp=temp.next
+a=[10,20,30,40,50]
+l=SLL()
+SLL.single_linked_list(l,a)
+# SLL.printlinkedlist(l)
+# SLL.delete_head(l)
+# print("\n")
+# SLL.printlinkedlist(l)
+# SLL.delete_tail(l)
+# SLL.printlinkedlist(l)
+SLL.removek(l,40)
+SLL.printlinkedlist(l)

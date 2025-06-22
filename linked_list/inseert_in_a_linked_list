@@ -14,12 +14,49 @@ class SLL:
         new_node=Node(val)
         new_node.next=self.head
         self.head=new_node
+    def insert_at_end(self,val):
+        temp=self.head
+        while temp.next is not None:
+            temp=temp.next
+        temp.next=Node(val)
+    def insert_at_k(self,val,k):
+        temp=self.head
+        cnt=0
+        while temp.next is not None:
+            cnt+=1
+            if cnt==k-1:
+                new_node=Node(val)
+                new_node.next=temp.next
+                temp.next=new_node
+            temp=temp.next
+        return self.head
+    def insert_before_el(self,val,el):
+        temp=self.head
+        while temp.next is not None:
+            if temp.next.data==el:
+                new_node=Node(val)
+                new_node.next=temp.next
+                temp.next=new_node
+            temp=temp.next
+
+        return self.head
+        
 l=SLL()
 l.head=Node(10)
 e2=Node(20)
 e3=Node(30)
 l.head.next=e2
 e2.next=e3
-SLL.printlinkedlist(l)
-SLL.insert_at_head(l,100)
+# SLL.printlinkedlist(l)
+# SLL.insert_at_head(l,100)
+# print("\n")
+# SLL.printlinkedlist(l)
+# SLL.insert_at_end(l,500)
+# print("\n")
+# SLL.printlinkedlist(l)
+# SLL.insert_at_k(l,200,3)
+# print("\n")
+# SLL.printlinkedlist(l)
+SLL.insert_before_el(l,300,20)
+print("\n")
 SLL.printlinkedlist(l)
