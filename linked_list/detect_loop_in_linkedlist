@@ -1,0 +1,23 @@
+class Node:
+    def __init__(self,data,next=None):
+        self.data=data
+        self.next=next
+def detect_loop(head):
+    slow=head
+    fast=head
+    while slow is not None  and fast is not None and fast.next is not None:
+        slow=slow.next
+        fast=fast.next.next
+        if slow==fast:
+            return True
+    return False
+f=Node(10)
+s=Node(20)
+t,f,fi=Node(30),Node(40),Node(50)
+head=f
+f.next=s
+s.next=t
+t.next=f
+f.next=fi
+# fi.next=t
+print(detect_loop(head))
