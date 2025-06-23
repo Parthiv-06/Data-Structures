@@ -1,0 +1,74 @@
+# class Node:
+#     def __init__(self,data,next=None,back=None):
+#         self.data=data
+#         self.next=next
+#         self.back=back
+# class DLL:
+#     def __init__(self):
+#         self.head=None
+#     def double_linked_list(self,a):
+#         self.head=Node(a[0])
+#         prev=self.head
+#         for i in range(1,len(a)):
+#             temp=Node(a[i],None,prev)
+#             prev.next=temp
+#             prev=temp
+#         return self.head
+#     def printlinkedlist(self):
+#         printval=self.head
+#         while printval is not None:
+#             print(printval.data,end="<->")
+#             printval=printval.next
+#     def reverse_linked_list(self):
+#         curr=self.head
+#         prev=None
+#         while curr is not None:
+#             prev=curr.back
+#             curr.back=curr.next
+#             curr.next=prev
+#             curr=curr.back
+#         return prev.back
+# l=DLL()
+# a=[10,20,30,40,50,60]
+# DLL.double_linked_list(l,a)
+# # DLL.printlinkedlist(l)
+# # DLL.reverse_linked_list(l)
+# # DLL.printlinkedlist(l)
+# DLL.reverse_linked_list(l)
+# DLL.printlinkedlist(l)
+
+class Node:
+    def __init__(self,data,next=None,back=None):
+        self.data=data
+        self.next=next
+        self.back=back
+def printll(head):
+    printval=head
+    while printval is not None:
+        print(printval.data,end=" ")
+        printval=printval.next
+def array_to_ll(a):
+    head=Node(a[0])
+    prev=head
+    for i in range(1,len(a)):
+        temp=Node(a[i],None,prev)
+        prev.next=temp
+        prev=temp
+    return head
+def reversell(head):
+    if head==None or head.next==None:
+        return head
+    current=head
+    prev=None
+    while current is not None:
+        prev=current.back
+        current.back=current.next
+        current.next=prev
+        current=current.back
+    return prev.back
+a=[10,20,30,40,50]
+head=array_to_ll(a)
+printll(head)
+print("\n")
+head=reversell(head)
+printll(head)
