@@ -1,0 +1,68 @@
+class Node:
+    def __init__(self,data,next=None,random=None):
+        self.data=data
+        self.next=next
+        self.random=random
+def duplicate_nodes(head):
+    temp=head
+    while temp is not None:
+        next_node=temp.next
+        copy_node=Node(temp.data)
+        copy_node.next=next_node
+        temp.next=copy_node
+        temp=temp.next.next
+    return head
+def random_setting(head):
+    temp=head
+    while temp is not None:
+        ran=temp.random
+        temp.next.random=ran.next
+        temp=temp.next.next
+    return head
+def get_clone(head):
+    dummy_node=Node(-1)
+    res=dummy_node
+    temp=head
+    while temp is not None:
+        res.next=temp.next
+        res=res.next
+        temp.next=temp.next.next
+        temp=temp.next
+    return dummy_node.next
+def copy_ran(head):
+    duplicate_nodes(head)
+    random_setting(head)
+    return get_clone(head)
+def printClonedLinkedList(head):
+    while head:
+        print("Data:", head.data, end="")
+        if head.random:
+            print(", Random:", head.random.data, end="")
+        else:
+            print(", Random: None", end="")
+        print()
+        # Move to the next node
+        head = head.next
+
+# Main function
+if __name__ == "__main__":
+    # Example linked list: 7 -> 14 -> 21 -> 28
+    head = Node(7)
+    head.next = Node(14)
+    head.next.next = Node(21)
+    head.next.next.next = Node(28)
+
+    # Assigning random pointers
+    head.random = head.next.next
+    head.next.random = head
+    head.next.next.random = head.next.next.next
+    head.next.next.next.random = head.next
+
+    print("Original Linked List with Random Pointers:")
+    printClonedLinkedList(head)
+
+    # Clone the linked list
+    clonedList = copy_ran(head)
+
+    print("\nCloned Linked List with Random Pointers:")
+    printClonedLinkedList(clonedList)
