@@ -31,7 +31,7 @@ class Queue:
     def size_of_queue(self):
         return self.size
     def top_element(self):
-        print("top element is : ",self.start.data)
+        return self.start.data
 class Stack:
     def __init__(self):
         self.q=Queue()
@@ -41,15 +41,14 @@ class Stack:
         if s is None:
             exit(1)
         for i in range(s):
-            self.q.push(self.q.top_element)
+            self.q.push(self.q.top_element())
             self.q.pop()
-        pushed=self.q.top_element
-        print("pushed : ",pushed)
+        print("pushed : ",self.q.top_element())
     def pop_in_stack(self):
-        print("popped: ",self.q.top_element)
+        print("popped: ",self.q.top_element())
         self.q.pop
     def top_element_in_stack(self):
-        return self.q.top_element
+        return self.q.top_element()
     def size_of_stack(self):
         return self.q.size_of_queue
 # q=Queue()
