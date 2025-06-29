@@ -1,0 +1,17 @@
+def is_valid(s):
+    res=[]
+    for st in s:
+        if st=='[' or st=="{" or st=="(":
+            res.append(st)
+        else:
+            if len(res)==0:
+                return False
+            ch=res[-1]
+            res.pop()
+            if st=="]" and ch=="[" or st=="}" and ch=="{" or st==")" and ch=="(":
+                continue
+            else:
+                return False
+    return len(res)==0
+s="[](){}"
+print(is_valid(s))
