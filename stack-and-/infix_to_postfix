@@ -8,7 +8,7 @@ def infix_to_postfix(s):
         elif s[i]=="(":
             stack.append(s[i])
         elif s[i]==")":
-            while len(stack)!=0 or stack[-1]=="(":
+            while len(stack)!=0 and stack[-1]=="(":
                 res.append(stack[-1])
                 stack.pop()
         else:
@@ -20,7 +20,7 @@ def infix_to_postfix(s):
     while len(stack)!=0:
         res.append(stack[-1])
         stack.pop()
-    return res
+    return "".join(res)
 s="a+b*(c^d-c)"
 print(infix_to_postfix(s))
         
