@@ -11,5 +11,6 @@ def nextt_greater_element_circular(a):
                 res[i]=stack[-1]
         stack.append(a[i%len(a)])
     return res
-a=[6,0,8,1,3]
+a=[1,2,1]
 print(nextt_greater_element_circular(a))
+print(3%3)
