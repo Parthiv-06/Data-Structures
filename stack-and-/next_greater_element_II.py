@@ -13,4 +13,3 @@ def nextt_greater_element_circular(a):
     return res
 a=[1,2,1]
 print(nextt_greater_element_circular(a))
-print(3%3)
