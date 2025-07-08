@@ -1,0 +1,15 @@
+def number_of_platforms_required(arrival,depature):
+    ans,cnt,i,j=0,0,0,0
+    while  i<len(arrival) and j<len(depature):
+        if arrival[i]<=depature[j]:
+            cnt+=1
+            i+=1
+        else:
+
+            cnt-=1
+            j+=1
+        ans=max(ans,cnt)
+    return ans
+arr=[900,945,955,1100,1500,1800]
+dep=[920,1200,1130,1150,1900,2000]
+print(number_of_platforms_required(arr,dep))
