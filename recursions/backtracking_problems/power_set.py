@@ -9,4 +9,4 @@ def power_set(n,i,arr,res):
 arr=[1,2,3,4,5]
 res=[]
 n=len(arr)
-power_set(n,0,arr,res)
+power_set(n,0,arr,res)  
