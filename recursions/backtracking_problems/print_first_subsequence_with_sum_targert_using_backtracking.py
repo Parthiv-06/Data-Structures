@@ -15,5 +15,3 @@ arr=[1,2,2,3,4]
 res=[]
 tar=4
 target_sum(res,tar,arr,len(arr),0)
-
-    
